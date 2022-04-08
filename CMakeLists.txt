@@ -3,4 +3,4 @@ project(PracticumAlgorithm)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(PracticumAlgorithm main.cpp)
+add_executable(PracticumAlgorithm main.cpp streamcollection.h)
