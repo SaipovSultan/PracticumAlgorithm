@@ -11,6 +11,7 @@
 
 template <typename T, size_t max_size>
 class Queue{
+public:
     Queue() : data(max_size), head(0u), tail(0u), size(0u) {}
 
     bool empty() const noexcept{
@@ -61,6 +62,7 @@ private:
 
 template <typename T>
 class QueueList{
+public:
     QueueList() = default;
 
     bool empty() const noexcept{
@@ -76,9 +78,9 @@ class QueueList{
     }
 
     T pop() {
-        T res = data.front();
-        data.pop_front();
-        return res;
+        T value = data.front();
+        data.pop_back();
+        return value;
     }
 
     T peek() const {
