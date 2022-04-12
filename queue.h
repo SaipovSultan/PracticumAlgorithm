@@ -12,13 +12,13 @@
 template <typename T, size_t max_size>
 class Queue{
 public:
-    Queue() : data(max_size), head(0u), tail(0u), size(0u) {}
+    Queue() : data(max_size), head(0u), tail(0u), size(0u){}
 
     bool empty() const noexcept{
         return size == 0u;
     }
 
-    void push(T&& value) {
+    void push(T&& value){
         if(size >= max_size){
             throw std::bad_alloc();
         }
@@ -27,7 +27,7 @@ public:
         ++size;
     }
 
-    void push(const T& value) {
+    void push(const T& value){
         if(size >= max_size){
             throw std::bad_alloc();
         }
@@ -36,7 +36,7 @@ public:
         ++size;
     }
 
-    T pop() {
+    T pop(){
         if(empty()){
             throw std::bad_alloc();
         }
@@ -69,21 +69,21 @@ public:
         return data.empty();
     }
 
-    void push(T&& value) {
+    void push(T&& value){
         data.push_back(std::move(value));
     }
 
-    void push(const T& value) {
+    void push(const T& value){
         data.push_back(value);
     }
 
-    T pop() {
+    T pop(){
         T value = data.front();
         data.pop_back();
         return value;
     }
 
-    T peek() const {
+    T peek() const{
         return data.front();
     }
 

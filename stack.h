@@ -12,24 +12,24 @@ class Stack{
 public:
     Stack() = default;
 
-    void push(T&& value) {
+    void push(T&& value){
         data.push_back(std::move(value));
     }
 
-    void push(const T& value) {
+    void push(const T& value){
         data.push_back(value);
     }
 
     template<typename... Args>
-    void emplace(Args&&... args) {
+    void emplace(Args&&... args){
         data.emplace_back(args...);
     }
 
-    void pop() noexcept {
+    void pop() noexcept{
         data.pop_back();
     }
 
-    T peek() const {
+    T peek() const{
         return data.back();
     }
 

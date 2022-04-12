@@ -15,12 +15,12 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& vector_){
     if(vector_.empty()){
         return out << "]";
     }
-    auto begin = vector_.cbegin(), end = std::prev(vector_.cend());
-    while(begin != end){
+    auto begin = vector_.cbegin(), prev_end = std::prev(vector_.cend());
+    while(begin != prev_end){
         out << (*begin) << ", ";
         begin = std::next(begin);
     }
-    return out << (*end) << "]";
+    return out << (*prev_end) << "]";
 }
 
 template <typename T>
