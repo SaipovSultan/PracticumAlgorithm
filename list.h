@@ -1,10 +1,4 @@
-//
-// Created by Progs on 09.04.2022.
-//
-
-#ifndef PRACTICUMALGORITHM_LIST_H
-#define PRACTICUMALGORITHM_LIST_H
-
+#pragma once
 #include <iostream>
 
 template <typename T>
@@ -102,5 +96,3 @@ void print_node(Node<T>* head, std::ostream& out){
     out << "nullptr";
 }
 
-
-#endif //PRACTICUMALGORITHM_LIST_H

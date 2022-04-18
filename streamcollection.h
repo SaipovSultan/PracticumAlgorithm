@@ -1,10 +1,4 @@
-//
-// Created by Sultan on 08.04.2022.
-//
-
-#ifndef PRACTICUMALGORITHM_STREAMCOLLECTION_H
-#define PRACTICUMALGORITHM_STREAMCOLLECTION_H
-
+#pragma once
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,4 +26,3 @@ std::istream& operator>>(std::istream& in, std::vector<T>& vector_){
     return in;
 }
 
-#endif //PRACTICUMALGORITHM_STREAMCOLLECTION_H

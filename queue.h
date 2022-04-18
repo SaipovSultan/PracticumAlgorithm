@@ -1,11 +1,4 @@
-//
-// Created by Progs on 10.04.2022.
-//
-
-#ifndef PRACTICUMALGORITHM_QUEUE_H
-#define PRACTICUMALGORITHM_QUEUE_H
-
-
+#pragma once
 #include <vector>
 #include <list>
 
@@ -90,5 +83,3 @@ public:
 private:
     std::list<T> data;
 };
-
-#endif //PRACTICUMALGORITHM_QUEUE_H

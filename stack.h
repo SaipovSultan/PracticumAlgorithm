@@ -1,10 +1,4 @@
-//
-// Created by Progs on 09.04.2022.
-//
-
-#ifndef PRACTICUMALGORITHM_STACK_H
-#define PRACTICUMALGORITHM_STACK_H
-
+#pragma once
 #include <vector>
 
 template <typename T>
@@ -73,4 +67,3 @@ private:
     std::vector<T> data;
 };
 
-#endif //PRACTICUMALGORITHM_STACK_H
