@@ -40,9 +40,12 @@ vector<forward_list<int>> create_adjacency_list(const vector<Edge>& edges) {
 
 enum class Colors {WHITE, GRAY, BLACK};
 
+size_t time = 0u;
+vector<size_t> Entry, Leave;
+
 void dfs(const vector<Edge>& edges, size_t s) {
     auto adjacency_list = create_adjacency_list(edges);
-    vector<Colors> colors(adjacency_list.size() + 1u, Colors::WHITE);
+    vector<Colors> colors(adjacency_list.size(), Colors::WHITE);
     stack<size_t> stk;
     stk.push(s);
     while(!stk.empty()) {
@@ -50,6 +53,11 @@ void dfs(const vector<Edge>& edges, size_t s) {
         stk.pop();
         if(colors[cur_vertex] == Colors::WHITE) {
             stk.push(cur_vertex);
+            time += 1u;
+            if(Entry.size() <= cur_vertex) {
+                Entry.resize(cur_vertex + 1u);
+            }
+            Entry[cur_vertex] = time;
             colors[cur_vertex] = Colors::GRAY;
 
             cout << cur_vertex << " ";
@@ -59,6 +67,11 @@ void dfs(const vector<Edge>& edges, size_t s) {
                 if(colors[vertex] == Colors::WHITE) stk.push(vertex);
             }
         } else if(colors[cur_vertex] == Colors::GRAY) {
+            if(Leave.size() <= cur_vertex) {
+                Leave.resize(cur_vertex + 1u);
+            }
+            time += 1u;
+            Leave[cur_vertex] = time;
             colors[cur_vertex] = Colors::BLACK;
         }
     }
@@ -71,5 +84,8 @@ int main() {
     for(auto& [from, to] : edges) cin >> from >> to;
     cin >> s;
     dfs(edges, s);
+    for(size_t i = 0u;i < Entry.size();++i) {
+        cout << Entry[i] << " " << Leave[i] << endl;
+    }
     return 0;
 }
