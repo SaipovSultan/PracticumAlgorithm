@@ -10,19 +10,17 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& vector_){
         return out << "]";
     }
     auto begin = vector_.cbegin(), prev_end = std::prev(vector_.cend());
-    while(begin != prev_end){
+    for(;begin != prev_end;++begin){
         out << (*begin) << ", ";
-        begin = std::next(begin);
     }
     return out << (*prev_end) << "]";
 }
 
 template <typename T>
 std::istream& operator>>(std::istream& in, std::vector<T>& vector_){
-    auto begin = vector_.begin(), end = vector_.end();
-    while(begin != end && in >> *begin){
-        begin = std::next(begin);
-    }
+    for(auto begin = vector_.begin(), end = vector_.end();
+        begin != end && in >> *begin;
+        ++begin);
     return in;
 }
 
